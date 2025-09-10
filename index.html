@@ -46,12 +46,22 @@
   </header>
   <main id="main" tabindex="-1">
     <section id="hero" class="hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Hi, I'm <span class="accent">Nonthawat (Ice)</span></h1>
-      <p class="lead">Generative AI Intern @ SCG · Technical Team Member of GDGoC KMITL</p>
-      <p class="lead alt">I build AI‑assisted web tools, automation pipelines, and data‑driven applications.</p>
-      <div class="hero-actions">
-        <a href="#projects" class="btn">View Projects</a>
-        <a href="#contact" class="btn ghost">Contact</a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 id="hero-title">Hi, I'm <span class="accent">Nonthawat (Ice)</span></h1>
+          <p class="lead">Generative AI Intern @ SCG · Technical Team Member of GDGoC KMITL</p>
+          <p class="lead alt">I build AI‑assisted web tools, automation pipelines, and data‑driven applications.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn ghost">Contact</a>
+          </div>
+        </div>
+        <figure class="hero-portrait">
+          <picture>
+            <img src="assets/images/file.png" alt="Nonthawat (Ice) wizard-style illustrative portrait" loading="lazy" width="480" height="480" />
+          </picture>
+          <figcaption class="visually-hidden">Profile illustration</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -98,7 +108,7 @@
             <li>Cloud: AWS Amplify</li>
             <li>Year: 2025</li>
           </ul>
-          <p class="links"><a href="#" target="_blank" rel="noopener">Demo</a></p>
+          <p class="links"><a href="https://github.com/jasonkob/DormRaidar" class="repo-link" data-title="DormRadar" data-desc="Next.js dorm discovery & filtering app on AWS Amplify focused on speed and simplicity." data-role="Developer" data-stack="Next.js, AWS Amplify" data-year="2025" target="_blank" rel="noopener" role="button">GitHub Repo</a></p>
         </article>
         <article class="project-card" data-tags="ai automation" tabindex="0">
           <h3 class="project-title">Jaymart AI Chatbot</h3>
@@ -108,10 +118,26 @@
             <li>Stack: Bedrock</li>
             <li>Year: 2025</li>
           </ul>
-          <p class="links"><a href="#" target="_blank" rel="noopener">Pitch</a></p>
+          <p class="links"><a href="https://github.com/jasonkob/AWSHackathon" class="repo-link" data-title="Jaymart AI Chatbot" data-desc="Sales-support generative AI chatbot leveraging Amazon Bedrock and curated product data." data-role="Builder" data-stack="Amazon Bedrock, AWS" data-year="2025" target="_blank" rel="noopener" role="button">GitHub Repo</a></p>
         </article>
       </div>
     </section>
+
+    <!-- Static Repo Modal -->
+    <div id="repoModal" class="modal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="repoModalTitle">
+        <button class="modal__close" aria-label="Close" data-close>&times;</button>
+        <h3 id="repoModalTitle"></h3>
+        <p class="modal__desc"></p>
+        <ul class="modal__meta">
+          <li><strong>Role:</strong> <span data-field="role">–</span></li>
+             <li><strong>Stack:</strong> <span data-field="stack">–</span></li>
+             <li><strong>Year:</strong> <span data-field="year">–</span></li>
+        </ul>
+        <p><a href="#" class="modal__link" target="_blank" rel="noopener">Open on GitHub ↗</a></p>
+      </div>
+    </div>
 
     <section id="achievements" class="section" aria-labelledby="achievements-title">
       <h2 id="achievements-title">Achievements & Certifications</h2>
@@ -137,6 +163,12 @@
             <p>Reached Level 5.02: C fundamentals, logic, peer-driven learning.</p>
           </div>
         </li>
+        <li>
+          <div class="time-range">2024</div>
+          <div class="item-body">
+            <h3>depa Growth Lab GEN AI HACKATHON Powered by AWS · Finalist 11 teams</h3>
+            <p>Developed a generative AI application using AWS services.</p>
+          </div>
       </ul>
     </section>
 
@@ -167,14 +199,14 @@
         <li>
           <div class="time-range">2022</div>
           <div class="item-body">
-            <h3>IT Support Technician · Comtech Unified Systems</h3>
+            <h3>IT Support Technician · Comtech Unified Systems Co., Ltd.</h3>
             <p>On-site system & hardware support and issue resolution.</p>
           </div>
         </li>
         <li>
           <div class="time-range">2021 – 2022</div>
           <div class="item-body">
-            <h3>Computer Repair Intern · X-Net Computer & Peripheral</h3>
+            <h3>Computer Repair Intern · X-Net Computer & Periferal Co., Ltd.</h3>
             <p>Hands-on hardware diagnostics, assembly, and repair.</p>
           </div>
         </li>
@@ -187,8 +219,8 @@
         <li>
           <div class="time-range">2023 – 2026</div>
           <div class="item-body">
-            <h3>B.Eng. Computer Engineering · KMITL</h3>
-            <p>Focus: AI, systems, automation.</p>
+            <h3>King Mongkut's Institute of Technology Ladkrabang</h3>
+            <p>Bachelor of Engineering Program in Computer Engineering</p>
           </div>
         </li>
         <li>
@@ -198,6 +230,12 @@
             <p>Intensive peer-based C language & problem solving program.</p>
           </div>
         </li>
+        <li>
+          <div class="time-range">2021 – 2023</div>
+          <div class="item-body">
+            <h3>Phuket Technical College</h3>
+            <p>High vocational certificate in Industrial Electronics</p>
+          </div>
       </ul>
     </section>
 

@@ -54,3 +54,57 @@
   const yEl = document.getElementById('year');
   if(yEl) yEl.textContent = String(new Date().getFullYear());
 })();
+
+  // Static Repo Modal (Option B)
+  (function(){
+    const modal = document.getElementById('repoModal');
+    if(!modal) return;
+    const dialog = modal.querySelector('.modal__dialog');
+    const title = modal.querySelector('#repoModalTitle');
+    const desc = modal.querySelector('.modal__desc');
+    const link = modal.querySelector('.modal__link');
+    const roleEl = modal.querySelector('[data-field="role"]');
+    const stackEl = modal.querySelector('[data-field="stack"]');
+    const yearEl = modal.querySelector('[data-field="year"]');
+    let lastFocus = null;
+    function open(){
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+      modal.querySelector('.modal__close').focus();
+      document.addEventListener('keydown', onKey);
+    }
+    function close(){
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      document.removeEventListener('keydown', onKey);
+      if(lastFocus) lastFocus.focus();
+    }
+    function onKey(e){
+      if(e.key==='Escape') close();
+      if(e.key==='Tab' && modal.classList.contains('is-open')){
+        const focusables = Array.from(modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])')).filter(el=>!el.hasAttribute('disabled'));
+        if(focusables.length){
+          let idx = focusables.indexOf(document.activeElement);
+          if(e.shiftKey && (idx<=0)){ e.preventDefault(); focusables[focusables.length-1].focus(); }
+          else if(!e.shiftKey && (idx===focusables.length-1)){ e.preventDefault(); focusables[0].focus(); }
+        }
+      }
+    }
+    modal.addEventListener('click', e=>{ if(e.target.dataset.close!==undefined) close(); });
+    modal.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click', close));
+    document.querySelectorAll('.repo-link').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        lastFocus = a;
+        title.textContent = a.dataset.title || 'Repository';
+        desc.textContent = a.dataset.desc || 'No description provided.';
+        roleEl.textContent = a.dataset.role || '—';
+        stackEl.textContent = a.dataset.stack || '—';
+        yearEl.textContent = a.dataset.year || '—';
+        link.href = a.getAttribute('href');
+        open();
+      });
+    });
+  })();
